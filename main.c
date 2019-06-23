@@ -3,7 +3,7 @@
  * Usage: just feed it a text stream via stdin.
  * Example: curl https://8ch.net/cyber/res/32671.html | ./xyt | sort | uniq
  * bai
-**/
+ **/
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
@@ -17,10 +17,10 @@ void handle_stream(char initial_c) {
 	char c = 0;
 	ssize_t index = 1;
 	ssize_t rlen = 0;
-	
+
 	memset(url, 0x00, sizeof(url));
 	url[0] = initial_c;
-	
+
 	for (;;) {
 		rlen = read(0, &c, sizeof(c));
 		if (rlen <= 0) {
@@ -61,6 +61,6 @@ int main(int argc, char *argv[]) {
 			handle_stream(c);
 		}
 	}
-	
+
 	return 0;
 }
